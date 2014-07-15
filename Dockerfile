@@ -6,7 +6,7 @@ FROM      ubuntu
 MAINTAINER Joost Venema <joost.venema@kadaster.nl>
 
 # Update APT repository
-RUN apt-get update
+RUN apt-get -y update
 
 # Install packages
 RUN apt-get install -y libaio1 libaio-dev python3-pip alien
@@ -23,8 +23,8 @@ RUN dpkg -i *.deb
 
 # Setup Oracle environment
 RUN echo "/usr/lib/oracle/12.1/client64/lib" > /etc/ld.so.conf.d/oracle.conf
-RUN export ORACLE_HOME=/usr/lib/oracle/12.1/client64
-RUN export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+ENV ORACLE_HOME /usr/lib/oracle/12.1/client64
+ENV LD_LIBRARY_PATH /usr/lib/oracle/12.1/client64/lib
 RUN ldconfig
 
 # Install Python Packages
