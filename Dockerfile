@@ -28,6 +28,6 @@ ENV LD_LIBRARY_PATH /usr/lib/oracle/12.1/client64/lib
 RUN ldconfig
 
 # Install Python Packages
-RUN pip3 install requests cx_oracle sqlalchemy kombu bottle waitress
+RUN pip3 install requests cx_oracle sqlalchemy kombu bottle waitress websockets
 
 EXPOSE 5672
