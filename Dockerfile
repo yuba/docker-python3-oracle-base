@@ -28,6 +28,10 @@ ENV LD_LIBRARY_PATH /usr/lib/oracle/12.1/client64/lib
 RUN ldconfig
 
 # Install Python Packages
-RUN pip3 install requests cx_oracle sqlalchemy bottle waitress websockets Celery
+RUN pip3 install requests cx_oracle sqlalchemy bottle waitress websockets celery
 
-EXPOSE 5672
+VOLUME ["/data"]
+
+WORKDIR /data
+
+EXPOSE 5000
