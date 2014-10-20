@@ -1,6 +1,6 @@
 # Python3-oracle base image
 #
-# VERSION               0.0.1
+# VERSION               0.0.2
 
 FROM      ubuntu
 MAINTAINER Joost Venema <joost.venema@kadaster.nl>
@@ -28,10 +28,10 @@ ENV LD_LIBRARY_PATH /usr/lib/oracle/12.1/client64/lib
 RUN ldconfig
 
 # Install Python Packages
-RUN pip3 install requests cx_oracle sqlalchemy bottle waitress websockets celery
+RUN pip3 install requests cx_oracle sqlalchemy bottle waitress websockets celery flower
 
 VOLUME ["/data"]
 
 WORKDIR /data
 
-EXPOSE 5000
+EXPOSE 5000 5555 10080 
