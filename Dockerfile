@@ -30,6 +30,9 @@ RUN ldconfig
 # Install Python Packages
 RUN pip3 install requests cx_oracle sqlalchemy bottle waitress websockets celery flower
 
+# Needed to run Celery as root
+ENV C_FORCE_ROOT true
+
 VOLUME ["/data"]
 
 WORKDIR /data
